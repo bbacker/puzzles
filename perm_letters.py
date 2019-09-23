@@ -4,11 +4,11 @@
 # for given list of letters, show all permutations
 # that are found in a dictionary
 
+# usage: ./perm_letters  -s casino
+#        ./perm_letters -v 2 -s lremot
+
 import argparse
 from itertools import permutations
-
-ss = 'casino'
-ss = 'lremot'
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--verbose", type=int, help="verbose level, default 0", default=0)
@@ -19,22 +19,22 @@ ss=args.string
 
 verbose=args.verbose
 
-words = []
+perms = []
 
 for l in 3, 4, 5, 6:
     perm = permutations( list(ss), l)
     for i in perm:
         w = ''.join(i)
-        words.append(w)
+        perms.append(w)
 
 if verbose > 2:
     print('permutations:')
-    print(words)
+    print(perms)
 
 from spellchecker import SpellChecker
 
 spell = SpellChecker( distance=1 )
 
-known = spell.known( words )
+known = spell.known( perms )
 
 print('\n'.join( sorted(known) ))
