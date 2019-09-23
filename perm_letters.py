@@ -17,7 +17,7 @@ parser.add_argument("-s", "--string", type=str, help="string of target letters t
 args=parser.parse_args()
 ss=args.string
 
-verbose=0
+verbose=args.verbose
 
 words = []
 
