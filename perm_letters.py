@@ -11,7 +11,7 @@ ss = 'casino'
 ss = 'lremot'
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-v", "--verbose", type=int, help="verbose level, default 0")
+parser.add_argument("-v", "--verbose", type=int, help="verbose level, default 0", default=0)
 parser.add_argument("-s", "--string", type=str, help="string of target letters to permute, e.g. tireeh")
 
 args=parser.parse_args()
@@ -37,6 +37,4 @@ spell = SpellChecker( distance=1 )
 
 known = spell.known( words )
 
-print('known words:')
-#print('\n'.join(sort(known)))
-print('\n'.join(known))
+print('\n'.join( sorted(known) ))
