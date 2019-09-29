@@ -21,7 +21,8 @@ verbose=args.verbose
 
 perms = []
 
-for l in 3, 4, 5, 6:
+for l in range(3, len(ss)+1):
+    print(l)
     perm = permutations( list(ss), l)
     for i in perm:
         w = ''.join(i)
